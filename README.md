@@ -1,2 +1,3 @@
 # portfolio
 Portfolio site. Up for hosting.
+Currently, this is a temporary portfolio site, based around the theme of terminal portal to an actual website, more information and documentation of this site can be found in another readme file in the repository...
