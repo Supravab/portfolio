@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.supravabparajuli.com.np/sitemap.xml
