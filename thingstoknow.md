@@ -63,3 +63,24 @@ a lot of information about this site as told in the man command, and a way to co
 the easteregg commands are inside the {} and are hidden in the man command results, this should not be anywhere else and can be only found using the man commands.
 
 for the game, when the terminal is refreshed the game can reset, the ticked page of the nano shortcuts should be unticked, unchecked, then the shortcuts should not be accessable, the copied .sh should not be included in the $PATH, the .sh file should not have been made, it should be reset...
+
+blog post design
+/blog
+├── index.html or index.jsx
+├── /components
+│ ├── BlogCard.js
+│ ├── BlogViewer.js
+│ ├── RightSidebar.js
+│ └── SearchFilter.js
+├── /data
+│ ├── js.json
+│ ├── python.json
+│ └── life.json
+├── /assets
+│ ├── logos/js.svg
+│ ├── logos/python.svg
+│ └── ...
+
+blog post modular design theme
+
+The blog page, there will be a lot of sections like the coding section, the life section, the productivity section, the course section and inside these sections, i can design the blocks and cards of blog topics for each day and keep them there, above i can keep a search bar, that can search blogs by topics for each section and create a time filter for that blog page, then, i can create something like a modular design, first, for each type of blog inside the section like for js, in the blog itself i can make a unique thing like a logo in the top left of js for javascript learning blog, i can create one for python and all of that and in this blog page as well where there will be lots of different cards with different blog records, i can create a modular design where if i open one blog post, it takes up around 80% of the screen and the other blogs are shifted to the right, and the user can view the blog and comment on the blog or something, then in the right where there will be a modular blog list, if the viewer opens the blog list, it will take half the page like a tiling theme and the other blogs will be in the right side like before, so the user can view and read multiple blogs but of inside the same section, and the blog posts on the right might be hard to manage you might be thinking but, as i mentioned having the picture of js and python of the specific theme of blog cards, well be can collapse the heading and keep the block of the picture with slight detail on the right, the navbar on the right should expand when hovered over and give me the blog view,how is this idea
