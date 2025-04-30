@@ -214,27 +214,4 @@ function contactPage() {
   contactMe.classList.add("page-header");
   output.appendChild(contactMe);
  setTimeout(() =>window.location.href="contact.html", 530);
-} 
-
-//experimenting with javascript, learning about closures,
-//closures are basically used for encapsulation, creating encapsulated functions so that they cannot be accessed out of their function
-
-function closureContainer() {
-  let score = 0;
-  function addPoints(points){
-    score+=points;
-    return console.log(`points +${points}`);
-  }
-  function diffPoints(points){
-    score+=points;
-    return console.log(`points +${points}`);
-  }
-  function getScore(){
-    return score;
-  }
-  return {addPoints, diffPoints, getScore};
-}
-const game = closureContainer();
-closureContainer.addPoints(5);
-closureContainer.diffPoints(4);
-closureContainer.getScore();
+} ;
