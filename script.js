@@ -203,30 +203,30 @@ function aboutPage() {
   aboutMe.classList.add("page-header");
   aboutMe.innerHTML = "About Page";
   output.appendChild(aboutMe);
-  setTimeout(()=>window.location.href="about.html", 530);
-
+  setTimeout(() => (window.location.href = "about.html"), 530);
 }
 
 function contactPage() {
   console.log("the contact page is working");
   let contactMe = document.createElement("p");
-  contactMe.innerHTML ="Contact Page";
+  contactMe.innerHTML = "Contact Page";
   contactMe.classList.add("page-header");
   output.appendChild(contactMe);
- setTimeout(() =>window.location.href="contact.html", 530);
-} ;
+  setTimeout(() => (window.location.href = "contact.html"), 530);
+}
+
+
 
 //blog part
+const contentArea = document.getElementById("blog-content-area");
+contentArea.classList.add("hide-blog");
 const parent = document.querySelector(".container-fluid");
 parent.addEventListener("click", function (e) {
   if (e.target && e.target.classList.contains("collapse-content")) {
-    const post = e.target.closest(".content");
   }
 });
 const continueReading = document.getElementById("continue-button");
 const readLess = document.querySelectorAll(".collapse-content");
-const contentArea = document.getElementById("blog-content-area");
-contentArea.classList.add("hide-blog");
 const featuredPosts = document.querySelectorAll('[id^="featured-post-"]');
 const recentPosts = document.querySelectorAll('[id^="recent-post-"]');
 const heroTitle = document.querySelector(".display-4");
