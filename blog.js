@@ -25,13 +25,8 @@ parent.addEventListener("click", function (e) {
     contentCard.classList.add("hide-blog");
     continueReading.classList.remove("hide-blog");
   }
-//   if (e.target && e.target.id.includes("recent-post")) {
-//     let title = e.target.querySelector("h6");
-//     let description = e.target.querySelector(".description");
-//     let content = e.target.querySelector(".content");
-//     let clonedContent = content.childNodes;
-//     updateHero(title, description, clonedContent);
-//   }
+  if (e.target && e.target.classList.contains("recent-post")) {
+  }
 });
 const readLess = document.querySelectorAll(".collapse-content");
 const featuredPosts = document.querySelectorAll('[id^="featured-post-"]');
