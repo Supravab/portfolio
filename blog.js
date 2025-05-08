@@ -1,4 +1,6 @@
 //blog part
+const contentArea = document.getElementById("blog-content-area");
+contentArea.classList.add("hide-blog");
 function updateHero(title, description, content) {
   heroTitle.innerHTML = title.textContent;
   heroDescription.innerHTML = description.textContent;
@@ -14,17 +16,23 @@ function updateHero(title, description, content) {
     behavior: "smooth",
   });
 }
-function recentPost1(){
-  console.log("1");
+function recentPost1(x) {
+  let title = x.querySelector("h6");
+  let description = x.querySelector("small");
+  updateHero(title, description);
 }
-function recentPost2(){
-  console.log("2");
-} 
-function recentPost3(){
-  console.log("3");
+function recentPost2(x) {
+  let title = x.querySelector("h6");
+  let description = x.querySelector("small");
+  let content = "";
+  updateHero(title, description);
 }
-const contentArea = document.getElementById("blog-content-area");
-contentArea.classList.add("hide-blog");
+function recentPost3(x) {
+  let title = x.querySelector("h6");
+  let description = x.querySelector("small");
+  let content = "";
+  updateHero(title, description);
+}
 const parent = document.querySelector(".container-fluid");
 const continueReading = document.getElementById("continue-button");
 parent.addEventListener("click", function (e) {
@@ -34,15 +42,13 @@ parent.addEventListener("click", function (e) {
     contentCard.classList.add("hide-blog");
     continueReading.classList.remove("hide-blog");
   }
-  if (e.target && e.target.classList.contains("recent-post")){
-    if(e.target.id.includes("recent-post-1")){
-      recentPost1();
-    }
-    else if(e.target.id.includes("recent-post-2")){
-      recentPost2();
-    }
-    else if(e.target.id.includes("recent-post-3")){
-      recentPost3();
+  if (e.target && e.target.classList.contains("recent-post")) {
+    if (e.target.id.includes("recent-post-1")) {
+      recentPost1(e.target);
+    } else if (e.target.id.includes("recent-post-2")) {
+      recentPost2(e.target);
+    } else if (e.target.id.includes("recent-post-3")) {
+      recentPost3(e.target);
     }
   }
 });
