@@ -1,3 +1,4 @@
+ 
 const terminal = document.getElementById("terminal-input"); //input field
 const output = document.getElementById("terminal-output"); //dynamic output
 const form = document.getElementById("terminal-form"); // input container, for dynamic loading
