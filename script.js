@@ -225,7 +225,7 @@ function blogPage() {
   console.log("the blog page is working");
   let blogMe = document.createElement("p");
   blogMe.classList.add("page-header");
-  aboutMe.innerHTML = "Blog Page";
+  blogMe.innerHTML = "Blog Page";
   output.appendChild(blogMe);
   setTimeout(() => (window.location.href = "blog.html"), 530);
 }
