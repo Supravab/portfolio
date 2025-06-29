@@ -24,7 +24,9 @@ const manuals = {
   "?contact":
     "TLDR: you can get access to the contact portal through this command, where you can contact me, get my contact details, based location, social media <b>Usage: ?contact</b>",
     "?blog" :
-    "TLDR: you can get access to the blog page, where I will be writing blogs."
+    "TLDR: you can get access to the blog page, where I will be writing blogs.",
+    "?snake" :
+    "TLDR : a snake game made by me, its basic but try it out, it is somewhat fun"
 };
 
 //make the terminal focused at all times
@@ -64,7 +66,7 @@ terminal.addEventListener("keydown", function (e) {
       commandEntered === "?command"
     ) {
       result.innerHTML = `List of Commands: 
-      <ul><li>?help: start navigating the terminal.</li><li>?commands: list of commands on terminal.</li><li>clear: clears the terminal. </li><li>exit: exits the terminal</li><li>?shortcuts: play the mini-game</li><li>?about: the about page.</li><li>?contact: the contact page</li><li>?timer: the timer function</li><li>?blog: get blog page</li></ul><b>type man before any command to get detailed information about that command</b>
+      <ul><li>?help: start navigating the terminal.</li><li>?commands: list of commands on terminal.</li><li>clear: clears the terminal. </li><li>exit: exits the terminal</li><li>?shortcuts: play the mini-game</li><li>?about: the about page.</li><li>?contact: the contact page</li><li>?timer: the timer function</li><li>?blog: get blog page</li><li>?snake: play the snake game</li></ul><b>type man before any command to get detailed information about that command</b>
       `;
     } else if (commandEntered.startsWith("man ")) {
       let parts = commandEntered.split(" ");
@@ -110,7 +112,12 @@ terminal.addEventListener("keydown", function (e) {
     } else if (commandEntered === "?blog") {
       blogPage();
       result.innerHTML = "loading blog page...";
-    } else {
+    }
+    else if(commandEntered === "?snake") {
+      snakeGame();
+      result.innerHTML = "loading snake game...";
+    }
+    else {
       result.innerHTML =
         "Unknown command: type ?help to see a list of available commands.";
     }
@@ -229,3 +236,8 @@ function blogPage() {
   output.appendChild(blogMe);
   setTimeout(() => (window.location.href = "blog.html"), 530);
 }
+
+function snakeGame(){
+  setTimeout(()=>(window.location.href = "snake.html"), 530);
+}
+

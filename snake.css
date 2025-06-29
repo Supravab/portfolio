@@ -1,0 +1,41 @@
+.fruit{
+    background : red;
+    height : 20px;
+    width: 20px;
+    position : absolute;
+    border-radius : 5px;
+    border : solid 1px green;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: black;
+    height: 100vh;
+}
+
+.game-over{
+    color: red;
+    font-size : 5rem;
+    position: absolute;
+}
+.snake{
+    background: green;
+    width: 10px;
+    height: 10px; 
+    border-radius: 5px;
+    border: 1px solid black;  
+    position: absolute;
+}
+.canvas{
+    height:510px;
+    width: 510px;
+    border: red solid 2px;
+}
+.button{
+    color:white;
+    background: green;
+    max-width: 150px;
+    padding:10px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
