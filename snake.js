@@ -7,6 +7,7 @@
 const canvasHeight = 500;
 const canvasWidth = 500;
 let currentFruit = null;
+let incrementVal = 5;
 let directionFunc = snakestill;
 function drawSnake(snake) {
     document.querySelectorAll(".snake").forEach(el => el.remove());
@@ -21,6 +22,7 @@ function drawSnake(snake) {
 function snakestill(){
     return null;
 }
+let counter = 0;
 function createFruit(){
     if(currentFruit){
         currentFruit.remove();
@@ -34,6 +36,7 @@ function createFruit(){
     fruit.style.left = `${FruitX}px`;
     document.body.appendChild(fruit);
     currentFruit = fruit;
+    counter++;
     return {FruitX, FruitY};
 }
 let fruitCoordinates = createFruit();
@@ -46,7 +49,7 @@ scoreValue.style.color = "#ffffff";
 scoreValue.style.fontSize = "1.2rem";
 scoreValue.style.position = "absolute";
 scoreValue.style.top = "0";
-scoreValue.style.right = "2px";
+scoreValue.style.left = "10%";
 document.body.appendChild(scoreValue);
 const endScreen = document.createElement("div");
 
@@ -83,26 +86,26 @@ snaketail();
 }
 };
 function snakeleft(){
-    dx = snake[0].x - 5;
+    dx = snake[0].x - incrementVal;
     dy = snake[0].y;
     snake.unshift({x: dx, y: dy});
     greatFunction();
 }
 function snakeright() {
-    dx = snake[0].x + 5;         
+    dx = snake[0].x + incrementVal;         
     dy = snake[0].y; 
     snake.unshift({x: dx, y:dy});
     greatFunction();
 }
 function snakeup(){
     dx =  snake[0].x;
-    dy = snake[0].y - 5; 
+    dy = snake[0].y - incrementVal; 
     snake.unshift({x: dx, y:dy});
     greatFunction();
 }
 function snakedown(){
     dx = snake[0].x;
-    dy = snake[0].y + 5;
+    dy = snake[0].y + incrementVal;
     snake.unshift({x: dx, y:dy});
     greatFunction();
 }
@@ -156,6 +159,17 @@ function collision(snuke){
         gameOver();
     }
 }
+function gameWon(){
+    if(counter >= 70){
+    endScreen.innerHTML = `Game Won, score ${score}`;
+    endScreen.classList.add("game-won");
+    document.body.appendChild(endScreen);
+    gameOn = false; 
+    }
+}
+function HardMode(){
+    incrementVal += 0.005;
+}
 function recurr() {
     //check whether game is on or not
     if(!gameOn){
@@ -166,7 +180,12 @@ function recurr() {
     drawSnake(snake);
     // collision detection function
     collision(snake);
-
+    //winning condition
+    gameWon();
+    //hardmode function
+    if(counter>60){
+        HardMode();
+    }
     //re-request the main loop again.
     requestAnimationFrame(recurr);
 }
