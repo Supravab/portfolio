@@ -37,6 +37,7 @@ function createFruit(){
     document.body.appendChild(fruit);
     currentFruit = fruit;
     counter++;
+    incrementVal += 0.001;
     return {FruitX, FruitY};
 }
 let fruitCoordinates = createFruit();
@@ -167,9 +168,6 @@ function gameWon(){
     gameOn = false; 
     }
 }
-function HardMode(){
-    incrementVal += 0.005;
-}
 function recurr() {
     //check whether game is on or not
     if(!gameOn){
@@ -182,10 +180,6 @@ function recurr() {
     collision(snake);
     //winning condition
     gameWon();
-    //hardmode function
-    if(counter>60){
-        HardMode();
-    }
     //re-request the main loop again.
     requestAnimationFrame(recurr);
 }
