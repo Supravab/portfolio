@@ -1,0 +1,23 @@
+body{
+    margin:0;
+    padding:0;
+    height:100vh;
+    background: white;
+    overflow-x: hidden;
+}
+#canva{
+    background: #000;
+    margin:1px;
+
+}
+
+.gen-particles{
+    position:absolute;
+    background:red;
+    color:White;
+    font-weight:bold;
+    top:30px;
+    right:2%;
+    padding:5px;
+    border-radius: 25%;
+}  
