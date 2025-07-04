@@ -105,7 +105,6 @@ const button = document.querySelector(".gen-particles");
 button.addEventListener("click", () => {
   generateParticles();
 });
-console.log(button);
 // generation function
 function generateParticles() {
   const particle = new genParticles(
