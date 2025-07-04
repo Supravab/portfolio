@@ -1,9 +1,3 @@
-// create a particle system
-// render a particle with its own properties
-// add collision properties
-// add gravity and velocity
-// add relational properties with each other, and add position properties
-// render particles on canvas, then use animationframe or something to generate time
 // each frame, canva can be replaced and redrawn where we can add things to make simulation
 
 //declaration
@@ -33,8 +27,31 @@ function recurr() {
         particles[i].radius + particles[j].radius >
           Math.abs(particles[i].y - particles[j].y)
       ) {
+        //change according to the momentum of the particles, thier radii mass and momentum plays a role here
         particles[i].velocityX = particles[i].velocityX + 5;
         particles[j].velocityX = particles[j].velocityX - 5;
+        //     particles[i].velocityX =
+        //       (2 * particles[j].mass * particles[j].velocityX) /
+        //         (particles[i].mass + particles[j].mass) -
+        //       ((particles[j].mass - particles[i].mass) * particles[i].velocityX) /
+        //         (particles[i].mass + particles[j].mass);
+        //     particles[j].velocityX =
+        //       (2 * particles[i].mass * particles[i].velocityX) /
+        //         (particles[i].mass + particles[j].mass) -
+        //       ((particles[j].mass - particles[i].mass) * particles[j].velocityX) /
+        //         (particles[i].mass + particles[j].mass);
+
+        //     // for y axis
+        //     particles[i].velocityY =
+        //       (2 * particles[j].mass * particles[j].velocityY) /
+        //         (particles[i].mass + particles[j].mass) -
+        //       ((particles[j].mass - particles[i].mass) * particles[i].velocityY) /
+        //         (particles[i].mass + particles[j].mass);
+        //     particles[j].velocityY =
+        //       (2 * particles[i].mass * particles[i].velocityY) /
+        //         (particles[i].mass + particles[j].mass) -
+        //       ((particles[j].mass - particles[i].mass) * particles[j].velocityY) /
+        //         (particles[i].mass + particles[j].mass);
       }
     }
   }
@@ -52,6 +69,7 @@ class genParticles {
     this.velocityX = -2 + Math.random() * 2;
     this.velocityY = 0;
     this.radius = 12 + Math.floor(Math.random() * 8);
+    this.mass = this.radius * this.radius;
   }
   drawParticle() {
     ctx.beginPath();
@@ -87,6 +105,7 @@ const button = document.querySelector(".gen-particles");
 button.addEventListener("click", () => {
   generateParticles();
 });
+console.log(button);
 // generation function
 function generateParticles() {
   const particle = new genParticles(
