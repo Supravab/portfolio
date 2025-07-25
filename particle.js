@@ -28,30 +28,31 @@ function recurr() {
           Math.abs(particles[i].y - particles[j].y)
       ) {
         //change according to the momentum of the particles, thier radii mass and momentum plays a role here
-        particles[i].velocityX = particles[i].velocityX + 5;
-        particles[j].velocityX = particles[j].velocityX - 5;
-        //     particles[i].velocityX =
-        //       (2 * particles[j].mass * particles[j].velocityX) /
-        //         (particles[i].mass + particles[j].mass) -
-        //       ((particles[j].mass - particles[i].mass) * particles[i].velocityX) /
-        //         (particles[i].mass + particles[j].mass);
-        //     particles[j].velocityX =
-        //       (2 * particles[i].mass * particles[i].velocityX) /
-        //         (particles[i].mass + particles[j].mass) -
-        //       ((particles[j].mass - particles[i].mass) * particles[j].velocityX) /
-        //         (particles[i].mass + particles[j].mass);
+        // for x-axis
+        let viX = particles[i].velocityX;
+        let vjX = particles[j].velocityX;
+        particles[i].velocityX =
+          (viX * (particles[i].mass - particles[j].mass) +
+            2 * particles[j].mass * vjX) /
+          (particles[i].mass + particles[j].mass);
 
-        //     // for y axis
-        //     particles[i].velocityY =
-        //       (2 * particles[j].mass * particles[j].velocityY) /
-        //         (particles[i].mass + particles[j].mass) -
-        //       ((particles[j].mass - particles[i].mass) * particles[i].velocityY) /
-        //         (particles[i].mass + particles[j].mass);
-        //     particles[j].velocityY =
-        //       (2 * particles[i].mass * particles[i].velocityY) /
-        //         (particles[i].mass + particles[j].mass) -
-        //       ((particles[j].mass - particles[i].mass) * particles[j].velocityY) /
-        //         (particles[i].mass + particles[j].mass);
+        particles[j].velocityX =
+          (vjX * (particles[j].mass - particles[i].mass) +
+            2 * particles[i].mass * viX) /
+          (particles[i].mass + particles[j].mass);
+
+        // for y-axis
+        let viY = particles[i].velocityY;
+        let vjY = particles[j].velocityY;
+        particles[i].velocityY =
+          (viY * (particles[i].mass - particles[j].mass) +
+            2 * particles[j].mass * vjY) /
+          (particles[i].mass + particles[j].mass);
+
+        particles[j].velocityY =
+          (vjY * (particles[j].mass - particles[i].mass) +
+            2 * particles[i].mass * viY) /
+          (particles[i].mass + particles[j].mass);
       }
     }
   }
