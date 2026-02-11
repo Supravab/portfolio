@@ -1,0 +1,45 @@
+#cloud-config
+autoinstall:
+  version: 1
+  interactive-sections:
+    - network
+
+  locale: ne_NP.UTF-8
+  keyboard:
+    layout: us
+  identity:
+    hostname: mohanmaya-pc # Use hyphens instead of underscores for better DNS compatibility
+    username: admin
+    # Hashed version of 'MohanmayaAdmin123'
+    password: "$6$dImiZly51kD8Jnvb$GjkDcBKShn0KrLIhj/LETvbpTCzhiaGLtVmNWtux/hKwvMTmHcKf1t/Zz1xBSQjP84raVIdSyG52xeyV3RmtD." 
+  
+  users: 
+    - name: guest
+      # Hashed version of '123'
+      password: "$6$kuEY4QfpmfXUUvWr$bzHB5oP4NdHtFJaxjfmHz8vsryFHLvyMaV5XYG8X./tqhMFyqcy9kQIeZ243pkgNgT5WfaadMpYdcg0aLvHUA."
+      # No sudo property needed for standard users
+
+  storage:
+    layout:
+      name: direct
+
+  packages: 
+    - build-essential
+    - g++
+    - git
+    - curl
+    - wget
+    - firefox
+
+  snaps:
+    - name: code
+      classic: true
+
+  late-commands:
+    # Block websites via /etc/hosts
+    - curtin in-target -- bash -c "cat <<EOF >> /etc/hosts
+127.0.0.1 youtube.com www.youtube.com
+127.0.0.1 facebook.com www.facebook.com
+127.0.0.1 instagram.com www.instagram.com
+127.0.0.1 store.steampowered.com
+EOF"
